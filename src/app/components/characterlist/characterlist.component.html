@@ -1,0 +1,17 @@
+<app-characterfilter (houseSelected)="filterByHouse($event)"></app-characterfilter>
+
+<div class="character-container" *ngIf="characters.length > 0">
+  <a
+    *ngFor="let char of characters"
+    [routerLink]="['/character', char.name]"
+    style="text-decoration: none; color: inherit;"
+  >
+    <mat-card class="char-card">
+      <img mat-card-image [src]="char.image" alt="{{ char.name }}" />
+      <mat-card-content>
+        <h3>{{ char.name }}</h3>
+        <p>House: {{ char.house || 'None' }}</p>
+      </mat-card-content>
+    </mat-card>
+  </a>
+</div>
